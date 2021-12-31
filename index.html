@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta name="author" content="jrymal"/>
+
+        <title></title>
+
+        <link rel="manifest" href="manifest.json">
+
+        <!-- Standard icons and style features-->
+        <!--
+        <meta name="theme-color" content="#612525"/>
+        <link rel="icon" href="images/icons-70.png" sizes="70x70" />
+        <link rel="icon" href="images/icons-80.png" sizes="80x80" />
+        <link rel="icon" href="images/icons-150.png" sizes="150x150" />
+        <link rel="icon" href="images/icons-192.png" sizes="192x192" />
+        <link rel="icon" href="images/icons-512.png" sizes="512x512" />
+        -->
+        
+        <!-- MS icons -->
+        <!--
+        <meta name="msapplication-square70x70logo" content="images/icons-70.png"/>
+        <meta name="msapplication-square150x150logo" content="images/icons-150.png"/>
+        <meta name="msapplication-wide310x150logo" content="images/icons-310x150.png"/>
+        --> 
+        
+        <!-- Apple icons and style features -->
+        <!--
+        <link rel="apple-touch-icon" href="images/icons-192.png"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>--> 
+        <!-- or black -->
+
+        <script type="text/javascript" src="js/Util.js"> </script>
+        <script type="text/javascript" src="js/musicDice.js"> </script>
+
+        <link rel="stylesheet" type="text/css" href="css/core.css" media="all" async/>
+        <link rel="stylesheet" type="text/css" href="css/musicDice.css" media="all" async/>
+
+    </head>
+    <body onload="init()">
+        <section class="header">
+            <h1>Title</h1>
+        </section>
+        
+        <section class="tools">
+            <button id="install-app" class="hidden">Install as an App</button>
+        </section>
+        
+        <noscript>
+            <h2>This site requires Javascript</h2>
+        </noscript>
+
+        <section class="board">
+            <ul class="hex_board" id="hex_board">
+            </ul>
+        </section>
+
+        <script>
+            "use strict";
+            if('serviceWorker' in navigator) {
+                navigator.serviceWorker
+                    .register('serviceworker.js')
+                    .then(function() { console.debug("Service Worker Registered"); })
+                    .catch(function(error) {console.warn('Registration failed with ' + error);});
+            }
+        </script>
+    </body>
+</html>
