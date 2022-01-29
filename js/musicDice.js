@@ -1,8 +1,10 @@
-const HEX_CELL_CNT = 45;
+const HEX_CELL_CNT = 121;
 
 const hex_cell = (cnt) => `
     <li class="hex-item">
-        <div class="hex-content" id=${cnt}>${cnt}</div>
+        <div class="hex-container" id=${cnt}>
+            <p class="hex-content">${cnt}</p>
+        </div>
     </li>`;
 
 function init(){
