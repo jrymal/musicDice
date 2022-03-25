@@ -3,24 +3,26 @@
 
 .hex_board {
     --amount: 5;
-    background-color: black;
     display: grid;
     list-style-type: none;
     margin: 0;
     padding: 0;
     grid-template-columns: repeat(var(--amount), 1fr, 2fr) 1fr;
-    grid-gap: 1rem 3rem;
+    grid-gap: .3rem 1.3rem;
     background-color: black;
 }
+
+.hex-item .hex-container[data-text]:not([data-text='']){
+    background-image: radial-gradient(circle, white 0%, lightblue 80%);
+} 
 
 .hex-item {
     --counter: 1;
     position: relative;
-    #grid-column: 1 / span 3;
     grid-row: calc(var(--counter) + var(--counter)) / span 2;
     height: 0;
-    padding: 1em;
-    padding-bottom: 90%;
+    padding: .6em;
+    padding-bottom: 80%;
 
 }
 
@@ -35,6 +37,7 @@
     display: flex;
 
 }
+
 .hex-content {
   width: auto;
   height: auto;
@@ -130,5 +133,5 @@
 }
 
 .hex-item:nth-of-type(n + 111) {
-    --counter: 10;
+    --counter: 11;
 }
