@@ -24,6 +24,11 @@ const CELL_STANDARD = {
     value : 1,
 };
 
+const CELL_HIDDEN = {
+    text : "",
+    value : 0,
+};
+
 const SPECIAL_CELLS = {
     '17' : CELL_3PT,
     '35' : CELL_3PT,
@@ -53,10 +58,31 @@ function addHexes(){
 
         if (SPECIAL_CELLS[cnt]){
             cellData=SPECIAL_CELLS[cnt];
+        } else if (isHiddenIndex(cnt)){
+            cellData=CELL_HIDDEN;
         }
 
         innerHtml += hex_cell(cnt, cellData.text, cellData.value);
         cnt++;
     }
     eleBoard.innerHTML = innerHtml; 
+}
+
+function isHiddenIndex(index){
+    
+    return (4 >= index)
+        || (8 <= index && 15 >= index)
+        || (19 <= index && 22 >= index)
+        || (26 == index)
+        || (30 == index)
+        || (45 == index)
+        || (55 <= index && 57 >= index)
+        || (65 <= index && 66 >= index)
+        || (89 == index)
+        || (91 <= index && 92 >= index)
+        || (96 <= index && 97 >= index)
+        || (99 <= index && 103 >= index)
+        || (107 <= index && 115 >= index)
+        || (117 <= index)
+    ;
 }

@@ -1,3 +1,10 @@
+:root{
+    --color_background: black;
+    --color_empty: lightblue;
+    --color_highlight_edge: lightblue;
+    --color_highlight_center: white;
+}
+
 .board {
 }
 
@@ -9,11 +16,15 @@
     padding: 0;
     grid-template-columns: repeat(var(--amount), 1fr, 2fr) 1fr;
     grid-gap: .3rem 1.3rem;
-    background-color: black;
+    background-color: var(--color_background);
+}
+
+.hex-item .hex-container[data-value='0']{
+    background-color: var(--color_background);
 }
 
 .hex-item .hex-container[data-text]:not([data-text='']){
-    background-image: radial-gradient(circle, white 0%, lightblue 80%);
+    background-image: radial-gradient(circle, var(--color_highlight_center) 0%, var(--color_highlight_edge) 60%);
 } 
 
 .hex-item {
@@ -32,7 +43,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: white;
+    background-color: var(--color_empty);
     clip-path: polygon(75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%, 25% 0);
     display: flex;
 
